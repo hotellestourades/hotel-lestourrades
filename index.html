@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hôtel Les Tourrades à Cannes La Bocca - Un havre de paix méditerranéen rénové avec élégance. Chambres confortables, proximité de la plage et du centre de Cannes. Réservez votre séjour sur la Côte d'Azur.">
+    <meta name="keywords" content="hôtel Cannes, hôtel La Bocca, hébergement Cannes, hôtel Côte d'Azur, Les Tourrades, hôtel familial Cannes, proche plage Cannes">
+    <meta name="author" content="Hôtel Les Tourrades">
+    <meta property="og:title" content="Hôtel Les Tourrades - Cannes La Bocca | Votre escale méditerranéenne">
+    <meta property="og:description" content="Découvrez notre hôtel rénové à Cannes La Bocca, entre mer et ville, pour un séjour inoubliable sur la Côte d'Azur">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/facade.jpg">
+    <title>Hôtel Les Tourrades - Cannes La Bocca | Votre escale méditerranéenne</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d5e;
+            --secondary: #d4af37;
+            --accent: #e8a87c;
+            --light: #f8f6f0;
+            --white: #ffffff;
+            --dark: #2c2c2c;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::after {
+            display: none;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary);
+            color: var(--dark) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 77, 94, 0.7), rgba(232, 168, 124, 0.4)),
+                        url('images/facade.jpg') center/cover;
+            animation: zoomIn 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--secondary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.8rem;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .room-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .room-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.1);
+        }
+
+        .room-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .room-content {
+            padding: 2rem;
+        }
+
+        .room-content h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .room-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .room-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .room-feature {
+            background: var(--light);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--dark);
+        }
+
+        .room-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(26, 77, 94, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            color: var(--white);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .location-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .location-details {
+            margin-bottom: 2rem;
+        }
+
+        .location-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+
+        .location-item-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .location-item-content h4 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .location-item-content p {
+            color: var(--gray);
+        }
+
+        .map-container {
+            height: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .contact-item p, .contact-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .about-content,
+            .location-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+            }
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .rooms-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Les <span>Tourrades</span></div>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#hotel">L'Hôtel</a></li>
+                <li><a href="#chambres">Chambres</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#localisation">Localisation</a></li>
+                <li><a href="#contact" class="cta-button">Réserver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="accueil">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Bienvenue aux Tourrades</h1>
+            <p class="hero-subtitle">Votre havre de paix à Cannes La Bocca, entre mer Méditerranée et élégance provençale</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Réserver maintenant</a>
+                <a href="#chambres" class="btn-secondary">Découvrir nos chambres</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="hotel">
+        <div class="section-header fade-in">
+            <p class="section-subtitle">Notre Histoire</p>
+            <h2>L'Hôtel Les Tourrades</h2>
+            <p class="section-description">
+                L'Hôtel Les Tourrades allie le charme authentique de la Côte d'Azur 
+                à un confort moderne et raffiné.
+            </p>
+        </div>
+        <div class="about-content">
+            <div class="about-image fade-in">
+                <img src="images/reception.jpg" alt="Réception de l'hôtel Les Tourrades">
+            </div>
+            <div class="about-text fade-in">
+                <h3>L'excellence à deux pas de la mer</h3>
+                <p>
+                    Niché dans le quartier paisible de La Bocca à Cannes, notre hôtel 
+                    offre une expérience unique alliant authenticité méditerranéenne et modernité élégante.
+                </p>
+                <p>
+                    Chaque détail a été pensé pour votre bien-être : des chambres lumineuses et confortables, 
+                    un accueil chaleureux et personnalisé, et une situation idéale pour explorer les merveilles 
+                    de la Côte d'Azur.
+                </p>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>10 min des plages</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>Centre de Cannes à 15 min</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>Parking gratuit</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>WiFi haut débit</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>Climatisation</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>Accueil 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chambres" style="background: var(--white);">
+        <div class="section-header fade-in">
+            <p class="section-subtitle">Hébergement</p>
+            <h2>Nos Chambres</h2>
+            <p class="section-description">
+                Des espaces confortables et lumineux, décorés avec goût pour garantir votre sérénité
+            </p>
+        </div>
+        <div class="rooms-grid">
+            <div class="room-card fade-in">
+                <div class="room-image">
+                    <img src="images/chambre1.jpg" alt="Chambre Double">
+                    <div class="room-badge">Populaire</div>
+                </div>
+                <div class="room-content">
+                    <h3>Chambre Double</h3>
+                    <p>Parfaite pour un séjour confortable avec tout l'essentiel à portée de main.</p>
+                    <div class="room-features">
+                        <span class="room-feature">🛏️ Lit double</span>
+                        <span class="room-feature">📺 TV écran plat</span>
+                        <span class="room-feature">❄️ Climatisation</span>
+                        <span class="room-feature">🚿 Salle de bain privée</span>
+                    </div>
+                    <div class="room-price">
+                        <span class="price">À partir de 55€ <span>/ nuit</span></span>
+                        <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card fade-in">
+                <div class="room-image">
+                    <img src="images/chambre4.jpg" alt="Chambre Single">
+                    <div class="room-badge">Économique</div>
+                </div>
+                <div class="room-content">
+                    <h3>Chambre Single</h3>
+                    <p>Idéale pour les voyageurs solo, confortable et fonctionnelle.</p>
+                    <div class="room-features">
+                        <span class="room-feature">🛏️ Lit simple</span>
+                        <span class="room-feature">📺 TV écran plat</span>
+                        <span class="room-feature">❄️ Climatisation</span>
+                        <span class="room-feature">🚿 Salle de bain privée</span>
+                    </div>
+                    <div class="room-price">
+                        <span class="price">À partir de 55€ <span>/ nuit</span></span>
+                        <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card fade-in">
+                <div class="room-image">
+                    <img src="images/chambre2.jpg" alt="Chambre Twin">
+                    <div class="room-badge">Recommandé</div>
+                </div>
+                <div class="room-content">
+                    <h3>Chambre Twin</h3>
+                    <p>Deux lits séparés, idéale pour les amis ou collègues voyageant ensemble.</p>
+                    <div class="room-features">
+                        <span class="room-feature">🛏️ 2 lits simples</span>
+                        <span class="room-feature">📺 Smart TV</span>
+                        <span class="room-feature">❄️ Climatisation</span>
+                        <span class="room-feature">🛁 Salle de bain</span>
+                    </div>
+                    <div class="room-price">
+                        <span class="price">À partir de 55€ <span>/ nuit</span></span>
+                        <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Réserver</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card fade-in">
+                <div class="room-image">
+                    <img src="images/chambre3.jpg" alt="Chambre Triple">
+                    <div class="room-badge">Idéal famille</div>
+                </div>
+                <div class="room-content">
+                    <h3>Chambre Triple</h3>
+                    <p>Parfaite pour les familles ou petits groupes, spacieuse et confortable.</p>
+                    <div class="room-features">
+                        <span class="room-feature">🛏️ 3 lits</span>
+                        <span class="room-feature">👨‍👩‍👧 Jusqu'à 3 personnes</span>
+                        <span class="room-feature">📺 TV écran plat</span>
+                        <span class="room-feature">❄️ Climatisation</span>
+                    </div>
+                    <div class="room-price">
+                        <span class="price">À partir de 68€ <span>/ nuit</span></span>
+                        <a href="#contact" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="section-header fade-in">
+            <p class="section-subtitle">À Votre Service</p>
+            <h2>Nos Services</h2>
+            <p class="section-description">
+                Tout pour rendre votre séjour inoubliable
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🅿️</div>
+                <h3>Parking Gratuit</h3>
+                <p>Stationnement sécurisé et gratuit pour tous nos clients</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">📶</div>
+                <h3>WiFi Haut Débit</h3>
+                <p>Connexion internet rapide et fiable dans tout l'hôtel</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🍳</div>
+                <h3>Petit-Déjeuner</h3>
+                <p>Buffet continental avec produits locaux et frais (12€/pers)</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🏖️</div>
+                <h3>Proche de la Plage</h3>
+                <p>À seulement 10 minutes à pied des plages de La Bocca</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">❄️</div>
+                <h3>Climatisation</h3>
+                <p>Toutes nos chambres sont équipées de climatisation</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🎫</div>
+                <h3>Conciergerie</h3>
+                <p>Conseils et réservations pour vos activités</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie" style="background: var(--white);">
+        <div class="section-header fade-in">
+            <p class="section-subtitle">Découvrez</p>
+            <h2>Notre Galerie</h2>
+            <p class="section-description">
+                Plongez dans l'ambiance unique de notre hôtel
+            </p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item fade-in">
+                <img src="images/reception.jpg" alt="Réception">
+                <div class="gallery-overlay">
+                    <span>Réception moderne</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/chambre4.jpg" alt="Chambre">
+                <div class="gallery-overlay">
+                    <span>Nos chambres rénovées</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/chambre1.jpg" alt="Chambre double">
+                <div class="gallery-overlay">
+                    <span>Chambres lumineuses</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/salle-bain.jpg" alt="Salle de bain">
+                <div class="gallery-overlay">
+                    <span>Salles de bain modernes</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/chambre2.jpg" alt="Chambre twin">
+                <div class="gallery-overlay">
+                    <span>Confort et élégance</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/facade.jpg" alt="Extérieur">
+                <div class="gallery-overlay">
+                    <span>Façade de l'hôtel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="localisation">
+        <div class="section-header fade-in">
+            <p class="section-subtitle">Où Sommes-Nous</p>
+            <h2>Localisation</h2>
+            <p class="section-description">
+                Idéalement situé à Cannes La Bocca, proche de tout
+            </p>
+        </div>
+        <div class="location-content">
+            <div class="location-info fade-in">
+                <h3>Au Cœur de La Bocca</h3>
+                <div class="location-details">
+                    <div class="location-item">
+                        <div class="location-item-icon">🏖️</div>
+                        <div class="location-item-content">
+                            <h4>Plages à proximité</h4>
+                            <p>10 minutes à pied des magnifiques plages de La Bocca</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-item-icon">🏛️</div>
+                        <div class="location-item-content">
+                            <h4>Centre de Cannes</h4>
+                            <p>15 minutes en voiture, accessible en bus (lignes régulières)</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-item-icon">✈️</div>
+                        <div class="location-item-content">
+                            <h4>Aéroport Nice Côte d'Azur</h4>
+                            <p>30 minutes en voiture, navettes disponibles</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-item-icon">🚉</div>
+                        <div class="location-item-content">
+                            <h4>Gare SNCF La Bocca</h4>
+                            <p>5 minutes à pied de l'hôtel</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-item-icon">🛒</div>
+                        <div class="location-item-content">
+                            <h4>Commerces</h4>
+                            <p>Restaurants, supermarchés et boutiques à proximité</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-item-icon">🎭</div>
+                        <div class="location-item-content">
+                            <h4>Loisirs</h4>
+                            <p>Cinéma, bowling, Palais des Sports, stade et piscine municipale à proximité</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container fade-in">
+                <p style="color: var(--gray); text-align: center;">
+                    📍 Cannes La Bocca<br>
+                    <em>Carte interactive à venir</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: var(--white);">
+        <div class="section-header fade-in">
+            <p class="section-subtitle">Contactez-Nous</p>
+            <h2>Réservez Votre Séjour</h2>
+            <p class="section-description">
+                Notre équipe est à votre disposition pour toute question
+            </p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Hôtel Les Tourrades</h3>
+                <div class="contact-item">
+                    <h4>Adresse</h4>
+                    <p>Avenue des Tourrades<br>06150 Cannes La Bocca<br>France</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Téléphone</h4>
+                    <p><a href="tel:+33493123456">+33 (0)4 93 12 34 56</a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p><a href="/cdn-cgi/l/email-protection#c8a0a7bcada4a4adbbbca7bdbabaa9acadbb88a7baa9a6afade6aeba"><span class="__cf_email__" data-cfemail="335b5c47565f5f5640475c46414152575640735c41525d54561d5541">[email&#160;protected]</span></a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>Horaires de réception</h4>
+                    <p>24h/24 - 7j/7</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">🐦</a>
+                </div>
+            </div>
+            <div class="contact-form fade-in">
+                <form action="mailto:hotellestourrades@orange.fr" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="Nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="Téléphone">
+                </div>
+                <div class="form-group">
+                    <label for="dates">Dates de séjour souhaitées *</label>
+                    <input type="text" id="dates" name="Dates" placeholder="Ex: 15-20 juillet 2025" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomtype">Type de chambre *</label>
+                    <select id="roomtype" name="Type_de_chambre" required>
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="Chambre Double">Chambre Double (à partir de 55€/nuit)</option>
+                        <option value="Chambre Single">Chambre Single (à partir de 55€/nuit)</option>
+                        <option value="Chambre Twin">Chambre Twin (à partir de 55€/nuit)</option>
+                        <option value="Chambre Triple">Chambre Triple (à partir de 68€/nuit)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roomcount">Nombre de chambres *</label>
+                    <select id="roomcount" name="Nombre_de_chambres" required>
+                        <option value="1">1 chambre</option>
+                        <option value="2">2 chambres</option>
+                        <option value="3">3 chambres</option>
+                        <option value="4">4 chambres</option>
+                        <option value="5+">5 chambres ou plus</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Nombre de personnes *</label>
+                    <input type="number" id="guests" name="Nombre_de_personnes" min="1" max="20" value="2" required>
+                </div>
+                <div class="form-group">
+                    <label for="breakfast">Petit-déjeuner *</label>
+                    <select id="breakfast" name="Petit-déjeuner" required>
+                        <option value="Non">Sans petit-déjeuner</option>
+                        <option value="Oui - Tous les jours">Avec petit-déjeuner (12€/pers/jour)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message / Demandes spéciales</label>
+                    <textarea id="message" name="Message" placeholder="Vos demandes particulières, questions..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer ma demande de réservation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Hôtel Les Tourrades</h4>
+                <p>Votre havre de paix à Cannes La Bocca, pour votre confort.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <a href="#accueil">Accueil</a>
+                <a href="#hotel">L'Hôtel</a>
+                <a href="#chambres">Chambres</a>
+                <a href="#services">Services</a>
+                <a href="#galerie">Galerie</a>
+            </div>
+            <div class="footer-section">
+                <h4>Informations</h4>
+                <a href="#localisation">Comment venir</a>
+                <a href="#contact">Contact & Réservation</a>
+                <a href="#">Conditions générales</a>
+                <a href="#">Mentions légales</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Avenue des Tourrades<br>06150 Cannes La Bocca</p>
+                <p>Tél: +33 (0)4 93 12 34 56</p>
+                <p>Email: <a href="/cdn-cgi/l/email-protection#afc7c0dbcac3c3cadcdbc0daddddcecbcadcefc0ddcec1c8ca81c9dd"><span class="__cf_email__" data-cfemail="b1d9dec5d4ddddd4c2c5dec4c3c3d0d5d4c2f1dec3d0dfd6d49fd7c3">[email&#160;protected]</span></a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Hôtel Les Tourrades - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+
+    
