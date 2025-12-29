@@ -66,4 +66,4 @@ Avenue des Tourrades
 France
 
 Email: hotellestourrades@orange.fr
-Tél: +33 (0)4 93 12 34 56
+Tél: +33 (0)4 92 19 64 64
