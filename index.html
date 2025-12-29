@@ -834,6 +834,117 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Cookie Popup */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(28, 28, 28, 0.98);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            display: none;
+            animation: slideUp 0.5s ease;
+        }
+
+        .cookie-banner.show {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .cookie-text p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .cookie-text a {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .cookie-btn-accept {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .cookie-btn-accept:hover {
+            background: #e8c055;
+            transform: translateY(-2px);
+        }
+
+        .cookie-btn-decline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cookie-btn-decline:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .cookie-buttons {
+                flex-direction: column;
+            }
+            .cookie-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1152,10 +1263,15 @@
                 </div>
             </div>
             <div class="map-container fade-in">
-                <p style="color: var(--gray); text-align: center;">
-                    📍 Cannes La Bocca<br>
-                    <em>Carte interactive à venir</em>
-                </p>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.5!2d7.0094!3d43.5528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDMzJzEwLjEiTiA3wrAwMCczMy44IkU!5e0!3m2!1sfr!2sfr!4v1234567890"
+                    width="100%" 
+                    height="450" 
+                    style="border:0; border-radius: 8px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
@@ -1180,17 +1296,8 @@
                     <p><a href="tel:+33492196464">+33 (0)4 92 19 64 64</a></p>
                 </div>
                 <div class="contact-item">
-                    <h4>Email</h4>
-                    <p><a href="/cdn-cgi/l/email-protection#c8a0a7bcada4a4adbbbca7bdbabaa9acadbb88a7baa9a6afade6aeba"><span class="__cf_email__" data-cfemail="335b5c47565f5f5640475c46414152575640735c41525d54561d5541">[email&#160;protected]</span></a></p>
-                </div>
-                <div class="contact-item">
                     <h4>Horaires de réception</h4>
                     <p>7h à 12h et de 15h à 21h - 7j/7</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-link">📘</a>
-                    <a href="#" class="social-link">📷</a>
-                    <a href="#" class="social-link">🐦</a>
                 </div>
             </div>
             <div class="contact-form fade-in">
@@ -1270,14 +1377,13 @@
                 <h4>Informations</h4>
                 <a href="#localisation">Comment venir</a>
                 <a href="#contact">Contact & Réservation</a>
-                <a href="#">Conditions générales</a>
-                <a href="#">Mentions légales</a>
+                <a href="conditions-generales.html">Conditions générales</a>
+                <a href="mentions-legales.html">Mentions légales</a>
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
                 <p>2 Chemin de la Bastide Rouge<br>06150 Cannes La Bocca</p>
                 <p>Tél: +33 (0)4 92 19 64 64</p>
-                <p>Email: <a href="mailto:hotellestourrades@orange.fr">hotellestourrades@orange.fr</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1285,7 +1391,25 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>🍪 Cookies et confidentialité</h3>
+                <p>
+                    Nous utilisons des cookies pour améliorer votre expérience sur notre site. 
+                    En continuant votre navigation, vous acceptez l'utilisation de cookies conformément à notre 
+                    <a href="mentions-legales.html">politique de confidentialité</a>.
+                </p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accepter</button>
+                <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Refuser</button>
+            </div>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1321,4 +1445,39 @@
             const header = document.querySelector('header');
             const currentScroll = window.pageYOffset;
 
-    
+            if (currentScroll > 100) {
+                header.style.padding = '0.8rem 2rem';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '1.5rem 2rem';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Cookie Banner Management
+        function showCookieBanner() {
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            if (!cookieConsent) {
+                setTimeout(() => {
+                    document.getElementById('cookieBanner').classList.add('show');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieBanner').classList.remove('show');
+        }
+
+        // Show cookie banner on page load
+        window.addEventListener('load', showCookieBanner);
+    </script>
+</body>
+</html>
