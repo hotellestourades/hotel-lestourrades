@@ -48,7 +48,7 @@ Les demandes de réservation sont envoyées par email à :
 
 - Chambres Double, Single, Twin : À partir de 55€/nuit
 - Chambre Triple : À partir de 68€/nuit
-- Petit-déjeuner : 12€/pers/jour (optionnel)
+- Petit-déjeuner : 9€/pers/jour (optionnel)
 
 ## 🛠️ Technologies
 
@@ -61,7 +61,7 @@ Les demandes de réservation sont envoyées par email à :
 ## 📞 Contact
 
 Hôtel Les Tourrades
-Avenue des Tourrades
+2 Chemin de la Bastide Rouge
 06150 Cannes La Bocca
 France
 
