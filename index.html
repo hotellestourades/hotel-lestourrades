@@ -16,6 +16,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Schema.org pour Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Hôtel Les Tourrades",
+      "image": "https://hotel-lestourrades.fr/images/facade.jpg",
+      "description": "Hôtel à Cannes La Bocca - Chambres confortables, proximité de la plage Boccacabana et de l'aéroport. À partir de 55€/nuit.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2 Chemin de la Bastide Rouge",
+        "addressLocality": "Cannes",
+        "addressRegion": "Provence-Alpes-Côte d'Azur",
+        "postalCode": "06150",
+        "addressCountry": "FR"
+      },
+      "telephone": "+33492196464",
+      "email": "hotellestourrades@orange.fr",
+      "url": "https://hotel-lestourrades.fr",
+      "priceRange": "€€",
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "2"
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Parking gratuit"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "WiFi gratuit"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Climatisation"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Petit-déjeuner"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "43.5528",
+        "longitude": "7.0094"
+      }
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -806,7 +856,7 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <h1>Bienvenue aux Tourrades</h1>
-            <p class="hero-subtitle">Votre havre de paix à Cannes La Bocca, entre mer Méditerranée et élégance provençale</p>
+            <p class="hero-subtitle">Votre havre de paix à Cannes La Bocca</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">Réserver maintenant</a>
                 <a href="#chambres" class="btn-secondary">Découvrir nos chambres</a>
@@ -828,15 +878,14 @@
                 <img src="images/reception.jpg" alt="Réception de l'hôtel Les Tourrades">
             </div>
             <div class="about-text fade-in">
-                <h3>L'excellence à deux pas de la mer</h3>
+                <h3>Une chambre à deux pas de la mer</h3>
                 <p>
-                    Niché dans le quartier paisible de La Bocca à Cannes, notre hôtel 
-                    offre une expérience unique alliant authenticité méditerranéenne et modernité élégante.
+                    Niché dans le quartier dynamique de La Bocca à Cannes, notre hôtel 
+                    offre un point de chute proche des commerces, de la plage et des activités de loisirs.
                 </p>
                 <p>
-                    Chaque détail a été pensé pour votre bien-être : des chambres lumineuses et confortables, 
-                    un accueil chaleureux et personnalisé, et une situation idéale pour explorer les merveilles 
-                    de la Côte d'Azur.
+                    Des chambres confortables, un accueil chaleureux et personnalisé, et une offre économique 
+                    pour explorer les merveilles de la Côte d'Azur.
                 </p>
                 <div class="features-list">
                     <div class="feature-item">
@@ -873,7 +922,7 @@
             <p class="section-subtitle">Hébergement</p>
             <h2>Nos Chambres</h2>
             <p class="section-description">
-                Des espaces confortables et lumineux, décorés avec goût pour garantir votre sérénité
+                Des espaces confortables pour dormir en toute tranquillité
             </p>
         </div>
         <div class="rooms-grid">
@@ -949,7 +998,7 @@
                     <h3>Chambre Triple</h3>
                     <p>Parfaite pour les familles ou petits groupes, spacieuse et confortable.</p>
                     <div class="room-features">
-                        <span class="room-feature">🛏️ 3 lits</span>
+                        <span class="room-feature">🛏️ 2 / 3 lits</span>
                         <span class="room-feature">👨‍👩‍👧 Jusqu'à 3 personnes</span>
                         <span class="room-feature">📺 TV écran plat</span>
                         <span class="room-feature">❄️ Climatisation</span>
@@ -985,12 +1034,12 @@
             <div class="service-card fade-in">
                 <div class="service-icon">🍳</div>
                 <h3>Petit-Déjeuner</h3>
-                <p>Buffet continental avec produits locaux et frais (12€/pers)</p>
+                <p>Buffet continental (viennoiseries, boissons, yaourts, céréales...) 9€/pers</p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">🏖️</div>
                 <h3>Proche de la Plage</h3>
-                <p>À seulement 10 minutes à pied des plages de La Bocca</p>
+                <p>À 2 km à pieds de la plage Boccacabana</p>
             </div>
             <div class="service-card fade-in">
                 <div class="service-icon">❄️</div>
@@ -1000,7 +1049,7 @@
             <div class="service-card fade-in">
                 <div class="service-icon">🎫</div>
                 <h3>Conciergerie</h3>
-                <p>Conseils et réservations pour vos activités</p>
+                <p>Conseils et réservations de transport</p>
             </div>
         </div>
     </section>
@@ -1010,7 +1059,7 @@
             <p class="section-subtitle">Découvrez</p>
             <h2>Notre Galerie</h2>
             <p class="section-description">
-                Plongez dans l'ambiance unique de notre hôtel
+                Plongez dans l'ambiance de notre hôtel
             </p>
         </div>
         <div class="gallery-grid">
@@ -1066,13 +1115,6 @@
                 <h3>Au Cœur de La Bocca</h3>
                 <div class="location-details">
                     <div class="location-item">
-                        <div class="location-item-icon">🏖️</div>
-                        <div class="location-item-content">
-                            <h4>Plages à proximité</h4>
-                            <p>10 minutes à pied des magnifiques plages de La Bocca</p>
-                        </div>
-                    </div>
-                    <div class="location-item">
                         <div class="location-item-icon">🏛️</div>
                         <div class="location-item-content">
                             <h4>Centre de Cannes</h4>
@@ -1082,15 +1124,15 @@
                     <div class="location-item">
                         <div class="location-item-icon">✈️</div>
                         <div class="location-item-content">
-                            <h4>Aéroport Nice Côte d'Azur</h4>
-                            <p>30 minutes en voiture, navettes disponibles</p>
+                            <h4>Aéroport International de Cannes-Mandelieu</h4>
+                            <p>5 minutes à pieds</p>
                         </div>
                     </div>
                     <div class="location-item">
                         <div class="location-item-icon">🚉</div>
                         <div class="location-item-content">
                             <h4>Gare SNCF La Bocca</h4>
-                            <p>5 minutes à pied de l'hôtel</p>
+                            <p>10 minutes en voiture de l'hôtel</p>
                         </div>
                     </div>
                     <div class="location-item">
@@ -1131,11 +1173,11 @@
                 <h3>Hôtel Les Tourrades</h3>
                 <div class="contact-item">
                     <h4>Adresse</h4>
-                    <p>Avenue des Tourrades<br>06150 Cannes La Bocca<br>France</p>
+                    <p>2 Chemin de la Bastide Rouge<br>06150 Cannes La Bocca<br>France</p>
                 </div>
                 <div class="contact-item">
                     <h4>Téléphone</h4>
-                    <p><a href="tel:+33493123456">+33 (0)4 93 12 34 56</a></p>
+                    <p><a href="tel:+33492196464">+33 (0)4 92 19 64 64</a></p>
                 </div>
                 <div class="contact-item">
                     <h4>Email</h4>
@@ -1143,7 +1185,7 @@
                 </div>
                 <div class="contact-item">
                     <h4>Horaires de réception</h4>
-                    <p>24h/24 - 7j/7</p>
+                    <p>7h à 12h et de 15h à 21h - 7j/7</p>
                 </div>
                 <div class="social-links">
                     <a href="#" class="social-link">📘</a>
@@ -1197,7 +1239,7 @@
                     <label for="breakfast">Petit-déjeuner *</label>
                     <select id="breakfast" name="Petit-déjeuner" required>
                         <option value="Non">Sans petit-déjeuner</option>
-                        <option value="Oui - Tous les jours">Avec petit-déjeuner (12€/pers/jour)</option>
+                        <option value="Oui - Tous les jours">Avec petit-déjeuner (9€/pers/jour)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -1233,9 +1275,9 @@
             </div>
             <div class="footer-section">
                 <h4>Contact</h4>
-                <p>Avenue des Tourrades<br>06150 Cannes La Bocca</p>
-                <p>Tél: +33 (0)4 93 12 34 56</p>
-                <p>Email: <a href="/cdn-cgi/l/email-protection#afc7c0dbcac3c3cadcdbc0daddddcecbcadcefc0ddcec1c8ca81c9dd"><span class="__cf_email__" data-cfemail="b1d9dec5d4ddddd4c2c5dec4c3c3d0d5d4c2f1dec3d0dfd6d49fd7c3">[email&#160;protected]</span></a></p>
+                <p>2 Chemin de la Bastide Rouge<br>06150 Cannes La Bocca</p>
+                <p>Tél: +33 (0)4 92 19 64 64</p>
+                <p>Email: <a href="mailto:hotellestourrades@orange.fr">hotellestourrades@orange.fr</a></p>
             </div>
         </div>
         <div class="footer-bottom">
