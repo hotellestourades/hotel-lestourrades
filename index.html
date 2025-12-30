@@ -945,6 +945,62 @@
                 width: 100%;
             }
         }
+
+        /* Map buttons responsive */
+        .map-buttons-container {
+            margin-top: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .map-btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .map-btn-primary:hover {
+            background: #163d4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 77, 94, 0.3);
+        }
+
+        .map-btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .map-btn-secondary:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 77, 94, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .map-buttons-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .map-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -980,8 +1036,9 @@
             <p class="section-subtitle">Notre Histoire</p>
             <h2>L'Hôtel Les Tourrades</h2>
             <p class="section-description">
-                L'Hôtel Les Tourrades allie le charme authentique de la Côte d'Azur 
-                à un confort moderne et raffiné.
+                L'Hôtel Les Tourrades vous offre un hébergement économique idéalement situé, 
+                à proximité de l'aéroport, des commerces et de la plage. 
+                Un point de chute pratique pour explorer Cannes sans se ruiner.
             </p>
         </div>
         <div class="about-content">
@@ -1143,7 +1200,7 @@
                 <p>Connexion internet rapide et fiable dans tout l'hôtel</p>
             </div>
             <div class="service-card fade-in">
-                <div class="service-icon">🍳</div>
+                <div class="service-icon">🥐</div>
                 <h3>Petit-Déjeuner</h3>
                 <p>Buffet continental (viennoiseries, boissons, yaourts, céréales...) 9€/pers</p>
             </div>
@@ -1264,14 +1321,31 @@
             </div>
             <div class="map-container fade-in">
                 <iframe 
-                    src="https://maps.google.com/maps?q=2%20Chemin%20de%20la%20Bastide%20Rouge%2C%2006150%20Cannes%20La%20Bocca&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=H%C3%B4tel+Les+Tourrades,+2+Chemin+de+la+Bastide+Rouge,+06150+Cannes+La+Bocca&t=&z=16&ie=UTF8&iwloc=&output=embed"
                     width="100%" 
                     height="450" 
                     style="border:0; border-radius: 8px;" 
                     allowfullscreen="" 
                     loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Carte de localisation de l'Hôtel Les Tourrades">
                 </iframe>
+                <div class="map-buttons-container">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=2+Chemin+de+la+Bastide+Rouge,+06150+Cannes+La+Bocca" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="map-btn map-btn-primary">
+                        <span style="font-size: 1.2rem;">📍</span>
+                        Obtenir l'itinéraire
+                    </a>
+                    <a href="https://www.google.com/maps/place/2+Chemin+de+la+Bastide+Rouge,+06150+Cannes+La+Bocca/@43.5528,7.0094,17z" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="map-btn map-btn-secondary">
+                        <span style="font-size: 1.2rem;">🔍</span>
+                        Voir sur Google Maps
+                    </a>
+                </div>
             </div>
         </div>
     </section>
