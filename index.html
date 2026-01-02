@@ -35,6 +35,13 @@
     <meta name="geo.position" content="43.5528;7.0094">
     <meta name="ICBM" content="43.5528, 7.0094">
     
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -1397,26 +1404,26 @@
                 </div>
             </div>
             <div class="contact-form fade-in">
-                <form action="mailto:hotel.lestourrades@gmail.com" method="post" enctype="text/plain">
+                <form id="reservationForm" action="https://formspree.io/f/xvgoopbw" method="POST">
                 <div class="form-group">
                     <label for="name">Nom complet *</label>
-                    <input type="text" id="name" name="Nom" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" id="email" name="Email" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Téléphone</label>
-                    <input type="tel" id="phone" name="Téléphone">
+                    <input type="tel" id="phone" name="phone">
                 </div>
                 <div class="form-group">
                     <label for="dates">Dates de séjour souhaitées *</label>
-                    <input type="text" id="dates" name="Dates" placeholder="Ex: 15-20 juillet 2025" required>
+                    <input type="text" id="dates" name="dates" placeholder="Ex: 15-20 juillet 2025" required>
                 </div>
                 <div class="form-group">
                     <label for="roomtype">Type de chambre *</label>
-                    <select id="roomtype" name="Type_de_chambre" required>
+                    <select id="roomtype" name="roomtype" required>
                         <option value="">-- Sélectionnez --</option>
                         <option value="Chambre Double">Chambre Double (à partir de 55€/nuit)</option>
                         <option value="Chambre Single">Chambre Single (à partir de 55€/nuit)</option>
@@ -1426,7 +1433,7 @@
                 </div>
                 <div class="form-group">
                     <label for="roomcount">Nombre de chambres *</label>
-                    <select id="roomcount" name="Nombre_de_chambres" required>
+                    <select id="roomcount" name="roomcount" required>
                         <option value="1">1 chambre</option>
                         <option value="2">2 chambres</option>
                         <option value="3">3 chambres</option>
@@ -1436,20 +1443,27 @@
                 </div>
                 <div class="form-group">
                     <label for="guests">Nombre de personnes *</label>
-                    <input type="number" id="guests" name="Nombre_de_personnes" min="1" max="20" value="2" required>
+                    <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
                 </div>
                 <div class="form-group">
                     <label for="breakfast">Petit-déjeuner *</label>
-                    <select id="breakfast" name="Petit-déjeuner" required>
+                    <select id="breakfast" name="breakfast" required>
                         <option value="Non">Sans petit-déjeuner</option>
                         <option value="Oui - Tous les jours">Avec petit-déjeuner (9€/pers/jour)</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="message">Message / Demandes spéciales</label>
-                    <textarea id="message" name="Message" placeholder="Vos demandes particulières, questions..."></textarea>
+                    <textarea id="message" name="message" placeholder="Vos demandes particulières, questions..."></textarea>
                 </div>
+                <!-- Champ honeypot anti-spam (caché) -->
+                <input type="text" name="_gotcha" style="display:none">
+                <!-- Email de destination -->
+                <input type="hidden" name="_replyto" value="hotel.lestourrades@gmail.com">
+                <!-- Page de redirection après soumission -->
+                <input type="hidden" name="_next" value="https://hotel-lestourrades.fr/?merci=1">
                 <button type="submit" class="submit-btn">Envoyer ma demande de réservation</button>
+                <div id="formStatus" style="margin-top: 1rem; padding: 1rem; border-radius: 4px; display: none;"></div>
                 </form>
             </div>
         </div>
