@@ -818,6 +818,148 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
+        /* Formulaire style Booking */
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .booking-selector {
+            position: relative;
+            width: 100%;
+        }
+
+        .selector-display {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 12px 16px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .selector-display:hover {
+            border-color: var(--primary);
+        }
+
+        .selector-display svg {
+            transition: transform 0.2s;
+        }
+
+        .selector-display.active svg {
+            transform: rotate(180deg);
+        }
+
+        .selector-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            padding: 16px;
+            z-index: 100;
+            display: none;
+        }
+
+        .selector-dropdown.show {
+            display: block;
+        }
+
+        .selector-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .selector-item:last-of-type {
+            border-bottom: none;
+            margin-bottom: 12px;
+        }
+
+        .selector-label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .selector-label strong {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .selector-label small {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .selector-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .selector-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .selector-btn:hover:not(:disabled) {
+            background: var(--primary);
+            color: white;
+        }
+
+        .selector-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .selector-value {
+            font-weight: 600;
+            color: #333;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .selector-done {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .selector-done:hover {
+            background: #14404d;
+        }
+
+        /* Calendrier styles (utilisation de flatpickr via CDN) */
+        #checkin, #checkout {
+            cursor: pointer;
+            background: white;
+        }
+
         @media (max-width: 968px) {
             .hero h1 {
                 font-size: 3rem;
@@ -1296,6 +1438,18 @@
                     <span>Façade de l'hôtel</span>
                 </div>
             </div>
+            <div class="gallery-item fade-in">
+                <img src="images/buffet_petitdej.png" alt="Buffet petit-déjeuner">
+                <div class="gallery-overlay">
+                    <span>Buffet petit-déjeuner</span>
+                </div>
+            </div>
+            <div class="gallery-item fade-in">
+                <img src="images/petit_dej.png" alt="Petit-déjeuner">
+                <div class="gallery-overlay">
+                    <span>Petit-déjeuner gourmand</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1405,6 +1559,105 @@
             </div>
             <div class="contact-form fade-in">
                 <form id="reservationForm" action="https://formspree.io/f/mlgdnryk" method="POST">
+                
+                <!-- Section Dates avec calendrier -->
+                <div class="form-row">
+                    <div class="form-group" style="flex: 1;">
+                        <label for="checkin">Arrivée *</label>
+                        <input type="text" id="checkin" name="checkin" placeholder="jj/mm/aaaa" required readonly>
+                    </div>
+                    <div class="form-group" style="flex: 1;">
+                        <label for="checkout">Départ *</label>
+                        <input type="text" id="checkout" name="checkout" placeholder="jj/mm/aaaa" required readonly>
+                    </div>
+                </div>
+                
+                <!-- Sélecteur Chambres et Personnes (style Booking) -->
+                <div class="form-group">
+                    <label>Chambres et personnes *</label>
+                    <div class="booking-selector" id="guestsSelector">
+                        <div class="selector-display" id="selectorDisplay">
+                            <span>1 chambre · 2 adultes · 0 enfant</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M4 6l4 4 4-4H4z"/>
+                            </svg>
+                        </div>
+                        <div class="selector-dropdown" id="selectorDropdown">
+                            <div class="selector-item">
+                                <div class="selector-label">
+                                    <strong>Chambres</strong>
+                                </div>
+                                <div class="selector-controls">
+                                    <button type="button" class="selector-btn" data-action="decrease" data-target="rooms">−</button>
+                                    <span class="selector-value" id="roomsValue">1</span>
+                                    <button type="button" class="selector-btn" data-action="increase" data-target="rooms">+</button>
+                                </div>
+                            </div>
+                            <div class="selector-item">
+                                <div class="selector-label">
+                                    <strong>Adultes</strong>
+                                    <small>18 ans et plus</small>
+                                </div>
+                                <div class="selector-controls">
+                                    <button type="button" class="selector-btn" data-action="decrease" data-target="adults">−</button>
+                                    <span class="selector-value" id="adultsValue">2</span>
+                                    <button type="button" class="selector-btn" data-action="increase" data-target="adults">+</button>
+                                </div>
+                            </div>
+                            <div class="selector-item">
+                                <div class="selector-label">
+                                    <strong>Enfants</strong>
+                                    <small>0-17 ans</small>
+                                </div>
+                                <div class="selector-controls">
+                                    <button type="button" class="selector-btn" data-action="decrease" data-target="children">−</button>
+                                    <span class="selector-value" id="childrenValue">0</span>
+                                    <button type="button" class="selector-btn" data-action="increase" data-target="children">+</button>
+                                </div>
+                            </div>
+                            <div class="selector-item">
+                                <div class="selector-label">
+                                    <strong>Animaux de compagnie</strong>
+                                    <small>Chiens et chats acceptés</small>
+                                </div>
+                                <div class="selector-controls">
+                                    <button type="button" class="selector-btn" data-action="decrease" data-target="pets">−</button>
+                                    <span class="selector-value" id="petsValue">0</span>
+                                    <button type="button" class="selector-btn" data-action="increase" data-target="pets">+</button>
+                                </div>
+                            </div>
+                            <button type="button" class="selector-done" id="selectorDone">Terminé</button>
+                        </div>
+                    </div>
+                    <!-- Champs cachés pour stocker les valeurs -->
+                    <input type="hidden" id="rooms" name="rooms" value="1">
+                    <input type="hidden" id="adults" name="adults" value="2">
+                    <input type="hidden" id="children" name="children" value="0">
+                    <input type="hidden" id="pets" name="pets" value="0">
+                </div>
+                
+                <!-- Type de chambre -->
+                <div class="form-group">
+                    <label for="roomtype">Type de chambre préféré</label>
+                    <select id="roomtype" name="roomtype">
+                        <option value="">Pas de préférence</option>
+                        <option value="Chambre Double">Chambre Double (55€/nuit)</option>
+                        <option value="Chambre Single">Chambre Single (55€/nuit)</option>
+                        <option value="Chambre Twin">Chambre Twin (55€/nuit)</option>
+                        <option value="Chambre Triple">Chambre Triple (68€/nuit)</option>
+                    </select>
+                </div>
+                
+                <!-- Petit-déjeuner -->
+                <div class="form-group">
+                    <label for="breakfast">Petit-déjeuner</label>
+                    <select id="breakfast" name="breakfast">
+                        <option value="Non">Sans petit-déjeuner</option>
+                        <option value="Oui">Avec petit-déjeuner (9€/pers/jour)</option>
+                    </select>
+                </div>
+                
+                <!-- Informations personnelles -->
                 <div class="form-group">
                     <label for="name">Nom complet *</label>
                     <input type="text" id="name" name="name" required>
@@ -1417,51 +1670,18 @@
                     <label for="phone">Téléphone</label>
                     <input type="tel" id="phone" name="phone">
                 </div>
+                
+                <!-- Message -->
                 <div class="form-group">
-                    <label for="dates">Dates de séjour souhaitées *</label>
-                    <input type="text" id="dates" name="dates" placeholder="Ex: 15-20 juillet 2025" required>
+                    <label for="message">Demandes spéciales</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Heure d'arrivée prévue, demandes particulières..."></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="roomtype">Type de chambre *</label>
-                    <select id="roomtype" name="roomtype" required>
-                        <option value="">-- Sélectionnez --</option>
-                        <option value="Chambre Double">Chambre Double (à partir de 55€/nuit)</option>
-                        <option value="Chambre Single">Chambre Single (à partir de 55€/nuit)</option>
-                        <option value="Chambre Twin">Chambre Twin (à partir de 55€/nuit)</option>
-                        <option value="Chambre Triple">Chambre Triple (à partir de 68€/nuit)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="roomcount">Nombre de chambres *</label>
-                    <select id="roomcount" name="roomcount" required>
-                        <option value="1">1 chambre</option>
-                        <option value="2">2 chambres</option>
-                        <option value="3">3 chambres</option>
-                        <option value="4">4 chambres</option>
-                        <option value="5+">5 chambres ou plus</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="guests">Nombre de personnes *</label>
-                    <input type="number" id="guests" name="guests" min="1" max="20" value="2" required>
-                </div>
-                <div class="form-group">
-                    <label for="breakfast">Petit-déjeuner *</label>
-                    <select id="breakfast" name="breakfast" required>
-                        <option value="Non">Sans petit-déjeuner</option>
-                        <option value="Oui - Tous les jours">Avec petit-déjeuner (9€/pers/jour)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message / Demandes spéciales</label>
-                    <textarea id="message" name="message" placeholder="Vos demandes particulières, questions..."></textarea>
-                </div>
-                <!-- Champ honeypot anti-spam (caché) -->
+                
+                <!-- Champs cachés Formspree -->
                 <input type="text" name="_gotcha" style="display:none">
-                <!-- Email de destination -->
                 <input type="hidden" name="_replyto" value="hotel.lestourrades@gmail.com">
-                <!-- Page de redirection après soumission -->
                 <input type="hidden" name="_next" value="https://hotel-lestourrades.fr/?merci=1">
+                
                 <button type="submit" class="submit-btn">Envoyer ma demande de réservation</button>
                 <div id="formStatus" style="margin-top: 1rem; padding: 1rem; border-radius: 4px; display: none;"></div>
                 </form>
@@ -1597,6 +1817,159 @@
 
         // Show cookie banner on page load
         window.addEventListener('load', showCookieBanner);
+
+        // ========================================
+        // Formulaire de réservation style Booking
+        // ========================================
+        
+        // Gestion du sélecteur de chambres/personnes
+        const selectorDisplay = document.getElementById('selectorDisplay');
+        const selectorDropdown = document.getElementById('selectorDropdown');
+        const selectorDone = document.getElementById('selectorDone');
+        
+        let rooms = 1;
+        let adults = 2;
+        let children = 0;
+        let pets = 0;
+        
+        // Toggle dropdown
+        selectorDisplay.addEventListener('click', () => {
+            selectorDropdown.classList.toggle('show');
+            selectorDisplay.classList.toggle('active');
+        });
+        
+        // Fermer si clic à l'extérieur
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.booking-selector')) {
+                selectorDropdown.classList.remove('show');
+                selectorDisplay.classList.remove('active');
+            }
+        });
+        
+        // Bouton "Terminé"
+        selectorDone.addEventListener('click', () => {
+            selectorDropdown.classList.remove('show');
+            selectorDisplay.classList.remove('active');
+        });
+        
+        // Gestion des boutons +/-
+        document.querySelectorAll('.selector-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const action = btn.dataset.action;
+                const target = btn.dataset.target;
+                
+                if (target === 'rooms') {
+                    if (action === 'increase' && rooms < 5) rooms++;
+                    if (action === 'decrease' && rooms > 1) rooms--;
+                    document.getElementById('roomsValue').textContent = rooms;
+                    document.getElementById('rooms').value = rooms;
+                }
+                
+                if (target === 'adults') {
+                    if (action === 'increase' && adults < 20) adults++;
+                    if (action === 'decrease' && adults > 1) adults--;
+                    document.getElementById('adultsValue').textContent = adults;
+                    document.getElementById('adults').value = adults;
+                }
+                
+                if (target === 'children') {
+                    if (action === 'increase' && children < 10) children++;
+                    if (action === 'decrease' && children > 0) children--;
+                    document.getElementById('childrenValue').textContent = children;
+                    document.getElementById('children').value = children;
+                }
+                
+                if (target === 'pets') {
+                    if (action === 'increase' && pets < 5) pets++;
+                    if (action === 'decrease' && pets > 0) pets--;
+                    document.getElementById('petsValue').textContent = pets;
+                    document.getElementById('pets').value = pets;
+                }
+                
+                updateSelectorDisplay();
+                updateButtonStates();
+            });
+        });
+        
+        function updateSelectorDisplay() {
+            const roomText = rooms === 1 ? '1 chambre' : `${rooms} chambres`;
+            const adultText = adults === 1 ? '1 adulte' : `${adults} adultes`;
+            const childText = children === 0 ? '0 enfant' : (children === 1 ? '1 enfant' : `${children} enfants`);
+            const petText = pets === 0 ? '' : (pets === 1 ? ' · 1 animal' : ` · ${pets} animaux`);
+            
+            selectorDisplay.querySelector('span').textContent = `${roomText} · ${adultText} · ${childText}${petText}`;
+        }
+        
+        function updateButtonStates() {
+            // Désactiver boutons si limites atteintes
+            document.querySelectorAll('[data-target="rooms"][data-action="decrease"]').forEach(b => {
+                b.disabled = rooms <= 1;
+            });
+            document.querySelectorAll('[data-target="rooms"][data-action="increase"]').forEach(b => {
+                b.disabled = rooms >= 5;
+            });
+            document.querySelectorAll('[data-target="adults"][data-action="decrease"]').forEach(b => {
+                b.disabled = adults <= 1;
+            });
+            document.querySelectorAll('[data-target="adults"][data-action="increase"]').forEach(b => {
+                b.disabled = adults >= 20;
+            });
+            document.querySelectorAll('[data-target="children"][data-action="decrease"]').forEach(b => {
+                b.disabled = children <= 0;
+            });
+            document.querySelectorAll('[data-target="children"][data-action="increase"]').forEach(b => {
+                b.disabled = children >= 10;
+            });
+            document.querySelectorAll('[data-target="pets"][data-action="decrease"]').forEach(b => {
+                b.disabled = pets <= 0;
+            });
+            document.querySelectorAll('[data-target="pets"][data-action="increase"]').forEach(b => {
+                b.disabled = pets >= 5;
+            });
+        }
+        
+        // Initialiser les états des boutons
+        updateButtonStates();
+    </script>
+    
+    <!-- Flatpickr pour le calendrier -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    
+    <script>
+        // Configuration du calendrier
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        const checkinPicker = flatpickr("#checkin", {
+            locale: "fr",
+            minDate: "today",
+            dateFormat: "d/m/Y",
+            defaultDate: today,
+            onChange: function(selectedDates) {
+                if (selectedDates.length > 0) {
+                    const nextDay = new Date(selectedDates[0]);
+                    nextDay.setDate(nextDay.getDate() + 1);
+                    checkoutPicker.set('minDate', nextDay);
+                    
+                    // Si checkout est avant ou égal à checkin, ajuster
+                    const checkoutDate = checkoutPicker.selectedDates[0];
+                    if (!checkoutDate || checkoutDate <= selectedDates[0]) {
+                        checkoutPicker.setDate(nextDay);
+                    }
+                }
+            }
+        });
+        
+        const checkoutPicker = flatpickr("#checkout", {
+            locale: "fr",
+            minDate: tomorrow,
+            dateFormat: "d/m/Y",
+            defaultDate: tomorrow
+        });
     </script>
 </body>
 </html>
