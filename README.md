@@ -37,7 +37,7 @@ Voir le fichier `DEPLOIEMENT-VERCEL.md` pour les instructions complètes.
 ## 📧 Réservations
 
 Les demandes de réservation sont envoyées par email à :
-**hotellestourrades@orange.fr**
+**hotel.lestourrades@gmail.com**
 
 ## 🌐 Nom de domaine
 
@@ -65,5 +65,5 @@ Hôtel Les Tourrades
 06150 Cannes La Bocca
 France
 
-Email: hotellestourrades@orange.fr
+Email: hotel.lestourrades@gmail.com
 Tél: +33 (0)4 92 19 64 64
