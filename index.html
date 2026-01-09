@@ -76,9 +76,16 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="shortcut icon" href="/favicon.ico">
     
+    <!-- Preconnect pour accélérer les fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Preload de la font critique -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Preload de l'image hero pour LCP -->
+    <link rel="preload" as="image" href="images/facade.jpg" fetchpriority="high">
     
     <!-- Schema.org pour Google -->
     <script type="application/ld+json">
@@ -1447,7 +1454,7 @@
         </div>
         <div class="about-content">
             <div class="about-image fade-in">
-                <img src="images/reception.jpg" alt="Réception de l'hôtel Les Tourrades">
+                <img src="images/reception.jpg" width="800" height="600" loading="lazy" alt="Réception de l'hôtel Les Tourrades">
             </div>
             <div class="about-text fade-in">
                 <h3>Une chambre à deux pas de la mer</h3>
@@ -1500,7 +1507,7 @@
         <div class="rooms-grid">
             <div class="room-card fade-in">
                 <div class="room-image">
-                    <img src="images/chambre1.jpg" alt="Chambre Double">
+                    <img src="images/chambre1.jpg" alt="Chambre Double" width="834" height="683" loading="lazy">
                     <div class="room-badge">Populaire</div>
                 </div>
                 <div class="room-content">
@@ -1521,7 +1528,7 @@
 
             <div class="room-card fade-in">
                 <div class="room-image">
-                    <img src="images/chambre4.jpg" alt="Chambre Single">
+                    <img src="images/chambre4.jpg" alt="Chambre Single" width="936" height="768" loading="lazy">
                     <div class="room-badge">Économique</div>
                 </div>
                 <div class="room-content">
@@ -1542,7 +1549,7 @@
 
             <div class="room-card fade-in">
                 <div class="room-image">
-                    <img src="images/chambre2.jpg" alt="Chambre Twin">
+                    <img src="images/chambre2.jpg" alt="Chambre Twin" width="936" height="768" loading="lazy">
                     <div class="room-badge">Recommandé</div>
                 </div>
                 <div class="room-content">
@@ -1563,7 +1570,7 @@
 
             <div class="room-card fade-in">
                 <div class="room-image">
-                    <img src="images/chambre3.jpg" alt="Chambre Triple">
+                    <img src="images/chambre3.jpg" alt="Chambre Triple" width="936" height="768" loading="lazy">
                     <div class="room-badge">Idéal famille</div>
                 </div>
                 <div class="room-content">
@@ -1636,7 +1643,7 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item fade-in">
-                <img src="images/reception.jpg" alt="Réception">
+                <img src="images/reception.jpg" width="800" height="600" loading="lazy" alt="Réception">
                 <div class="gallery-overlay">
                     <span>Réception moderne</span>
                 </div>
@@ -1654,7 +1661,7 @@
                 </div>
             </div>
             <div class="gallery-item fade-in">
-                <img src="images/salle-bain.jpg" alt="Salle de bain">
+                <img src="images/salle-bain.jpg" alt="Salle de bain" width="800" height="600" loading="lazy">
                 <div class="gallery-overlay">
                     <span>Salles de bain modernes</span>
                 </div>
@@ -1666,19 +1673,19 @@
                 </div>
             </div>
             <div class="gallery-item fade-in">
-                <img src="images/facade.jpg" alt="Extérieur">
+                <img src="images/facade.jpg" alt="Extérieur" width="1920" height="1080" loading="lazy">
                 <div class="gallery-overlay">
                     <span>Façade de l'hôtel</span>
                 </div>
             </div>
             <div class="gallery-item fade-in">
-                <img src="images/buffet_petitdej.png" alt="Buffet petit-déjeuner">
+                <img src="images/buffet_petitdej.png" alt="Buffet petit-déjeuner" width="1200" height="900" loading="lazy">
                 <div class="gallery-overlay">
                     <span>Buffet petit-déjeuner</span>
                 </div>
             </div>
             <div class="gallery-item fade-in">
-                <img src="images/petit_dej.png" alt="Petit-déjeuner">
+                <img src="images/petit_dej.png" alt="Petit-déjeuner" width="1200" height="900" loading="lazy">
                 <div class="gallery-overlay">
                     <span>Petit-déjeuner gourmand</span>
                 </div>
